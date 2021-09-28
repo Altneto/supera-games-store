@@ -1,0 +1,89 @@
+package br.com.supera.game.store.entities;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+
+@Entity
+public class Cart {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int quantity;
+	private double totalValue;
+	private double subValue;
+	private double shippingValue;
+	
+	@ManyToOne
+	private User user;
+
+	@ManyToMany
+	private List<Product> products = new ArrayList<>();
+
+	public Cart() {
+	}
+
+	public Cart(int quantity, double totalValue, double subValue, double shippingValue, User user, List<Product> products) {
+		super();
+		this.quantity = quantity;
+		this.totalValue = totalValue;
+		this.subValue = subValue;
+		this.shippingValue = shippingValue;
+		this.user = user;
+		this.products = products;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+	
+	public double getTotalValue() {
+		return totalValue;
+	}
+
+	public void setTotalValue(double totalValue) {
+		this.totalValue = totalValue;
+	}
+
+	public double getSubValue() {
+		return subValue;
+	}
+
+	public void setSubValue(double subValue) {
+		this.subValue = subValue;
+	}
+
+	public double getShippingValue() {
+		return shippingValue;
+	}
+
+	public void setShippingValue(double shippingValue) {
+		this.shippingValue = shippingValue;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public List<Product> getProducts() {
+		return products;
+	}
+
+	public void setProducts(List<Product> products) {
+		this.products = products;
+	}
+}

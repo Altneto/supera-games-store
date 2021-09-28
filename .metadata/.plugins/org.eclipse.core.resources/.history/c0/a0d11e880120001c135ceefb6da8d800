@@ -1,0 +1,87 @@
+package br.com.supera.game.store.dto;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import br.com.supera.game.store.entities.Cart;
+import br.com.supera.game.store.entities.Product;
+
+public class CartDTO {
+	
+	private int quantity;
+	private double totalValue;
+	private double subValue;
+	private double shippingValue;
+	
+	private UserDTO user;
+	private List<ProductDTO> products = new ArrayList<>();
+	
+	public CartDTO() {
+	}
+
+	public CartDTO(int quantity, double totalValue, double subValue, double shippingValue, UserDTO user, List<ProductDTO> products) {
+		this.quantity = quantity;
+		this.totalValue = totalValue;
+		this.subValue = subValue;
+		this.shippingValue = shippingValue;
+		this.user = user;
+		this.products = products;
+	}
+
+	public CartDTO(Cart entity, UserDTO user, List<ProductDTO> products) {
+		quantity = entity.getQuantity();
+		totalValue = entity.getTotalValue();
+		subValue = entity.getSubValue();
+		shippingValue = entity.getShippingValue();
+		user = new UserDTO(entity.getUser());
+		this.products = products;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
+	public double getTotalValue() {
+		return totalValue;
+	}
+
+	public void setTotalValue(double totalValue) {
+		this.totalValue = totalValue;
+	}
+
+	public double getSubValue() {
+		return subValue;
+	}
+
+	public void setSubValue(double subValue) {
+		this.subValue = subValue;
+	}
+
+	public double getShippingValue() {
+		return shippingValue;
+	}
+
+	public void setShippingValue(double shippingValue) {
+		this.shippingValue = shippingValue;
+	}
+
+	public UserDTO getUser() {
+		return user;
+	}
+
+	public void setUser(UserDTO user) {
+		this.user = user;
+	}
+
+	public List<ProductDTO> getProducts() {
+		return products;
+	}
+
+	public void setProducts(List<ProductDTO> products) {
+		this.products = products;
+	}	
+}

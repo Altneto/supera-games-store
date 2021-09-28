@@ -1,0 +1,29 @@
+package br.com.supera.game.store.dto;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import br.com.supera.game.store.entities.Product;
+
+public class CartDTO {
+	
+	private double totalValue;
+	private double subValue;
+	private double shippingValue;
+	
+	private UserDTO user;
+	private List<ProductDTO> products = new ArrayList<>();
+	
+	public CartDTO() {
+	}
+
+	public CartDTO(double totalValue, double subValue, double shippingValue, UserDTO user, List<ProductDTO> products) {
+		this.totalValue = totalValue;
+		this.subValue = subValue;
+		this.shippingValue = shippingValue;
+		this.user = user;
+		this.products = products;
+	}
+	
+	
+}

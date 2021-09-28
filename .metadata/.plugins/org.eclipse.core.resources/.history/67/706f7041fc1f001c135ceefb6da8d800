@@ -1,0 +1,15 @@
+package br.com.supera.game.store.dto;
+
+import java.util.List;
+
+import br.com.supera.game.store.entities.Product;
+
+public class CartDTO {
+	
+	private String nameUser;
+	private Long idUser;
+	private List<Product> products;
+	private double totalValue;
+	private double subValue;
+	private double shippingValue;
+}

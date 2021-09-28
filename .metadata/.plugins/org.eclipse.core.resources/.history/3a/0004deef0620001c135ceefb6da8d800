@@ -1,0 +1,42 @@
+package br.com.supera.game.store.dto;
+
+import java.io.Serializable;
+
+import br.com.supera.game.store.entities.User;
+
+public class UserDTO implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
+	
+	private long id;
+	private String name;
+	
+	public UserDTO() {
+	}
+
+	public UserDTO(long id, String name) {
+		this.id = id;
+		this.name = name;
+	}
+
+	public UserDTO(User entity) {
+		id = entity.getId();
+		name = entity.getName();
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+}
